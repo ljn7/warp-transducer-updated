@@ -11,11 +11,12 @@ Install [PyTorch](https://github.com/pytorch/pytorch#installation).
 new warp-transducer clone you could build WarpRNNT like this:
 
 ```bash
-git clone https://github.com/HawkAaron/warp-transducer
+git clone https://github.com/ljn7/warp-transducer
 cd warp-transducer
-mkdir build; cd build
+mkdir build && cd build
 cmake ..
 make
+sudo make install #optional
 ```
 
 Otherwise, set `WARP_RNNT_PATH` to wherever you have `libwarprnnt.so`

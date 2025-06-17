@@ -1,4 +1,3 @@
-from distutils.version import LooseVersion
 import os
 import platform
 import sys
@@ -6,12 +5,8 @@ from setuptools import setup, find_packages
 import torch
 from torch.utils.cpp_extension import BuildExtension, CppExtension
 
+extra_compile_args = ['-fPIC', '-std=c++17']
 
-extra_compile_args = ['-fPIC']
-if LooseVersion(torch.__version__) >= LooseVersion("1.5.0"):
-    extra_compile_args += ['-std=c++14']
-else:
-    extra_compile_args += ['-std=c++11']
 warp_rnnt_path = "../build"
 
 if torch.cuda.is_available() or "CUDA_HOME" in os.environ:
@@ -39,11 +34,11 @@ include_dirs = [os.path.realpath('../include')]
 
 setup(
     name='warprnnt_pytorch',
-    version="0.1",
+    version="0.2",
     description="PyTorch wrapper for RNN-Transducer",
     url="https://github.com/HawkAaron/warp-transducer",
-    author="Mingkun Huang",
-    author_email="mingkunhuang95@gmail.com",
+    author="Mingkun Huang, John Nirmal",
+    author_email="mingkunhuang95@gmail.com, johnnirmal.works@gmail.com",
     packages=find_packages(),
     ext_modules=[
         CppExtension(
