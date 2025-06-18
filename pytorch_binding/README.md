@@ -31,13 +31,13 @@ export CUDA_HOME="/usr/local/cuda"
 Now install the bindings: (Please make sure the GCC version >= 4.9)
 ```
 cd pytorch_binding
-python setup.py install
+pip install .
 ```
 
 If you try the above and get a dlopen error on OSX with anaconda3 (as recommended by pytorch):
 ```
 cd ../pytorch_binding
-python setup.py install
+pip install .
 cd ../build
 cp libwarprnnt.dylib /Users/$WHOAMI/anaconda3/lib
 ```
